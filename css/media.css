@@ -1,0 +1,15 @@
+/* Resposividade simples */
+@media (max-width: 600px) {
+    .hero__content {
+        flex-direction: column;
+    }
+
+    .social {
+        flex-direction: row;
+        margin-bottom: 2rem;
+    }
+
+    .cta--header{
+        display: none;
+    }
+}

@@ -1,0 +1,184 @@
+:root {
+    --brand-red: #e74c3c;
+    --white: #fff;
+    --overlay: rgba(0, 0, 0, 0.65);
+    --font-primary: 'Roboto', sans-serif;
+}
+
+/* Reset mínimo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: var(--font-primary);
+    color: var(--white);
+    background-image: url(../img/background.jpg);
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100%;
+    background: url('corte-barber.jpg') center/cover no-repeat;
+}
+
+/* camada de escurecimento */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+}
+
+/* stack horizontal: redes sociais + conteúdo principal + CTA lateral */
+.hero__content {
+    position: relative;
+    /* acima do overlay */
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+}
+
+/* Ícones rede social */
+.social {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.35rem;
+}
+
+.social a {
+    color: var(--white);
+    transition: opacity .2s;
+}
+
+.social a:hover {
+    opacity: .7;
+}
+
+/* Botão “Agendar horário” cabeçalho */
+.cta--header {
+    padding: .65rem 1.5rem;
+    border: 1px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    border-radius: .25rem;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: background .25s;
+}
+
+.cta--header:hover {
+    background: var(--white);
+    color: #111;
+}
+
+/* Conteúdo central */
+.hero__center {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero__logo {
+    width: 130px;
+    margin: 0 auto 1.5rem;
+    
+    /* test */
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    /*  */
+}
+
+.hero__headline {
+    font-size: clamp(1.8rem, 4vw + .5rem, 3.3rem);
+   
+    /* test */
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.3s;
+    /*  */
+    
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.hero__sub {
+    margin: 1.5rem 0 2.5rem;
+    
+    /* test */
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.6s;
+    /*  */
+    
+    /* font-size: .95rem; --> tamanho inicial*/
+    font-weight: 400;
+}
+
+.cta--main {
+    /* display: inline-block; */
+    background:var(--brand-red);
+    border: none;
+    border-radius: 25px;
+    color: var(--white);
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition:all 0.3s ease;
+    
+    /* test */
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.9s;
+}
+
+.cta--main:hover {
+   background-color: #c0392b;
+   transform: scale(1.05);
+}
+
+/* Footer mini dentro do hero */
+.hero__footer {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+}
+
+/* Animation Fade In */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background with overlay effect */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+    z-index: -1;
+}
